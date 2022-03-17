@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      href="{{ url_for('static', filename='bootstrap.css') }}"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
+    <title>Result</title>
+    <style type="text/css">
+      html{
+      background-image: linear-gradient(to bottom right, #f0eef1, #8CA6DB);
+    }
+    body{
+      background-color: transparent !important;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <br>
+      <div class="text-center">
+        <img src="{{url_for('static', filename='grain-in-hand.jpg')}}">
+      </div>
+      <br>
+      <h2 class="text-center">Crop Yield Prediction</h2>
+      <br>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Region Name</th>
+            <th scope="col">Season</th>
+            <th scope="col">Yield Production</th>
+            <th scope="col">Crop Name</th>
+            <th scope="col">Yield Remarks</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            {% for data in to_predict %}
+            <td>{{ data }}</td>
+            {% endfor %}
+          </tr>
+        </tbody>
+      </table>
+
+      <h4 style="font-size: x-large;color: brown;" class="svm">Remarks: {{ rf_result }} </h3>
+      
+    </div>
+  </body>
+</html>

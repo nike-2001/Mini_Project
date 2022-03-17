@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Crop-YieldAI</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='bootstrap.css') }}"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <style type="text/css">
+    html{
+      background-image: linear-gradient(to bottom right, #b1f7ba, #e8f0ec);
+    }
+    body{
+      background-color: transparent !important;
+    }
+  </style>
+  <body>
+   <div class="wrapper">
+    <div class="container">
+      <br>
+      <div class="text-center">
+        <img src="{{url_for('static', filename='grain-in-hand.jpg')}}">
+      </div>
+      <br>
+      <h2 class="text-center">Crop Yield Prediction</h2>
+      <br>
+      <hr/>
+      <form action="/index" method="POST">
+        <div class="container">
+          <div class="row">
+            <div class="col-4">
+              <div class="form-group">
+              <label for="feedback1">Region Name</label>
+              <input type="text" required name="feedback1" class="form-control" placeholder="Enter Region Name">
+              <br/>
+              <label for="attendance">Season</label>
+              <select class="custom-select" name="attendance" required>
+                <option value="">Choose a Level</option>
+                <option value="0">Autumn</option>
+                <option value="1">Kharif</option>
+                <option value="2">Rabi</option>
+                <option value="3">Summer</option>
+                <option value="4">Whole Year</option>
+                <option value="5">Winter</option>
+              </select>
+              <br/>
+            <br/>
+              <label for="feedback">Yield Production Level</label>
+              <input type="float" required name="feedback" class="form-control" placeholder="Enter Production Value">
+              <br/>
+              <label for="overtime">Crop Name</label>
+              <select class="custom-select" name="overtime" required>
+                <option value="">Choose a Level</option>
+                <option value="0">Bajra</option>
+                <option value="1">Coconut</option>
+                <option value="2">Cotton - Lint</option>
+                <option value="3">Groundnut</option>
+                <option value="4">Jowar</option>
+                <option value="5">Maize</option>
+                <option value="6">Moong - Green Gram</option>
+                <option value="7">Niger Seeds</option>
+                <option value="8">Paddy</option>
+                <option value="9">Ragi</option>
+                <option value="10">Rice</option>
+                <option value="11">Sesamum</option>
+                <option value="12">Soyabean</option>
+                <option value="13">Sugarcane</option>
+                <option value="14">Sunflower</option>
+                <option value="15">Tur</option>
+                <option value="16">Urad</option>
+                <option value="17">Wheat</option>
+                
+              </select>
+            </div>
+            </div>
+
+           
+        <br>
+        <div class="container">
+          <div class="row">
+            <div class="col-8">
+              <button class="btn btn-primary btn-block" type="submit">Predict</button>
+            </div>
+            <div class="col-4">
+              <a class="btn btn-danger btn-block" href="/">Clear</a>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    </div>
+
+
+
+    <script src="{{ url_for('static', filename='bootstrap.js') }}"></script>
+  </body>
+</html>
